@@ -29,6 +29,7 @@ INSTALLED_APPS += ("anymail", )
 ANYMAIL = {
     "MAILGUN_API_KEY": env('DJANGO_MAILGUN_API_KEY'),
     "MAILGUN_SENDER_DOMAIN": EMAIL_SENDER_DOMAIN,
+    "MAILGUN_API_URL": "https://api.eu.mailgun.net/v3",
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
 EMAIL_SUBJECT_PREFIX = environ.get('EMAIL_SUBJECT_PREFIX', '[{}] '.format(SITE_TITLE))

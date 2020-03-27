@@ -16,6 +16,7 @@ class Command(NoArgsCommand):
     def handle(self, *args, **options):
         items = []
         for project in Project.objects.published().order_by('-publication_time'):
+            project_url = "{}{}".format(SITE_URL, reverse("package", kwargs={"slug": project.slug}))
             hive_team_members = ", ".join([
                 user.display_name
                 for user in  project.team_members.hive_users()
@@ -25,6 +26,7 @@ class Command(NoArgsCommand):
 
             items.append({
                 "project": project,
+                "project_url": project_url,
                 "hive_team_members": hive_team_members,
                 "category_name": project.category.title_plural,
                 "category_url": category_url,

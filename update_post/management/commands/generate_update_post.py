@@ -14,10 +14,8 @@ from package.models import Project
 class Command(NoArgsCommand):
 
     def handle(self, *args, **options):
-        last4 = list(Project.objects.all())[-4:]
-
         items = []
-        for project in last4:
+        for project in Project.objects.all():
             hive_team_members = ", ".join([
                 user.display_name
                 for user in  project.team_members.hive_users()
@@ -33,7 +31,9 @@ class Command(NoArgsCommand):
                 "project_image_url": project_image_url,
             })
 
-        print(get_template("update_post/update_post.md").render(context={
+        update_post = get_template("update_post/update_post.md").render(context={
             "items": items
-        }))
+        })
+
+        print(update_post)
 

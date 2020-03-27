@@ -194,11 +194,38 @@ class Profile(BaseModel):
         profile.delete()
 
 
+class AccountTypesQuerySet(models.QuerySet):
+    def hive_users(self):
+        return self.filter(account_type__name=Account.TYPE_HIVE)
+
+    def steem_users(self):
+        return self.filter(account_type__name=Account.TYPE_STEEM)
+
+    def github_users(self):
+        return self.filter(account_type__name=Account.TYPE_GITHUB)
+
+
+class AccountTypesManager(models.Manager):
+    def get_queryset(self):
+        return AccountTypesQuerySet(self.model, using=self._db)
+
+    def hive_users(self):
+        return self.get_queryset().hive_users()
+
+    def steem_users(self):
+        return self.get_queryset().steem_users()
+
+    def github_users(self):
+        return self.get_queryset().github_users()
+
+
 class Account(BaseModel):
+    TYPE_HIVE = "HIVE"
     TYPE_STEEM = "STEEM"
     TYPE_GITHUB = "GITHUB"
 
     TYPE_CHOICES = (
+        (TYPE_HIVE, 'Hive'),
         (TYPE_STEEM, 'Steem'),
         (TYPE_GITHUB, 'Github'),
     )
@@ -209,6 +236,8 @@ class Account(BaseModel):
     user_social_auth = models.ForeignKey(UserSocialAuth, null=True, blank=True, default=None)
     email = models.EmailField(_("Email"), null=True, blank=True)
 
+    objects = AccountTypesManager()
+
     @property
     def connected(self):
         return bool(self.user_social_auth)
@@ -218,6 +247,10 @@ class Account(BaseModel):
 
     def __str__(self):
         return "{}:{}".format(self.type.lower(), self.name)
+
+    @property
+    def display_name(self):
+        return "@{}".format(self.name)
 
     @property
     def type(self):

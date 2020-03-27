@@ -141,6 +141,7 @@ PROJECT_APPS = [
     "social_auth_local",
     "im",
     "timeline",
+    "update_post",
 ]
 
 PREREQ_APPS = [

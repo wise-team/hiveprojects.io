@@ -15,7 +15,7 @@ class Command(NoArgsCommand):
 
     def handle(self, *args, **options):
         items = []
-        for project in Project.objects.all():
+        for project in Project.objects.published().order_by('-publication_time'):
             hive_team_members = ", ".join([
                 user.display_name
                 for user in  project.team_members.hive_users()

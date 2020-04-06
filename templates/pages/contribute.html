@@ -6,28 +6,28 @@
 
 {% block body %}
 
-<h2>Contributing to Steem Projects</h2>
+<h2>Contributing to Hive Projects</h2>
 
 <p>
 
 This website is an entirely volunteer driven effort. That includes coding time and hosting costs. If you wish to help or show your gratitude, there are plenty of ways in which you can do that:
     <ul>
-        <li>Vote for our witness node. Our witness account is <i>{{ global_preferences.witness__our_witness_name }}</i>, you can vote for us <a href="https://steemit.com/~witnesses">here</a>.</li>
+        <li>Vote for our witness node. Our witness account is <i>{{ global_preferences.witness__our_witness_name }}</i>, you can vote for us <a href="https://peakd.com/witnesses">here</a>.</li>
         <li>Make sure that entries about your favorites projects are in the good shape, edit them if they don't</li>
-        <li>If your favorite project is not listed, you can help by adding it. <a href="https://steemit.com/utopian-io/@noisy/pre-release-tutorial-how-to-add-edit-a-project-on-steemprojects-com" target="_blank" rel="noopener noreferrer">Here is guideline which says how to do that properly</a>.</li>
-        <li>Did you found a bug? If it is not listed <a href="https://github.com/noisy/steemprojects.com/issues" target="_blank" rel="noopener noreferrer">on our github</a>, please let us know about it!</li>
-        <li>Are you a developer? Great! We always keep a list of issues with a label <a href="https://github.com/noisy/steemprojects.com/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener noreferrer">good first issue</a>. You can help us by resolving one of them :)</li>
-        <li>Do you own a Steem-related project? Add a signature to your post about a possibility of adding your project to user's favourite projects.</li>
-        <li>Add SteemProjects to your favorite projects :)</li>
-        <li>Follow our team-members on Steemit:<br>
+        <li>If your favorite project is not listed, you can help by adding it. <a href="https://peakd.com/utopian-io/@noisy/pre-release-tutorial-how-to-add-edit-a-project-on-steemprojects-com" target="_blank" rel="noopener noreferrer">Here is guideline which says how to do that properly</a>.</li>
+        <li>Did you found a bug? If it is not listed <a href="https://github.com/wise-team/hiveprojects.io/issues" target="_blank" rel="noopener noreferrer">on our github</a>, please let us know about it!</li>
+        <li>Are you a developer? Great! We always keep a list of issues with a label <a href="https://github.com/wise-team/hiveprojects.io/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener noreferrer">good first issue</a>. You can help us by resolving one of them :)</li>
+        <li>Do you own a Hive-related project? Add a signature to your post about a possibility of adding your project to user's favourite projects.</li>
+        <li>Add HiveProjects to your favorite projects :)</li>
+        <li>Follow our team-members on Peakd:<br>
             <ul>
                 {% for m in membership_in_steemprojects %}
                     <li><a href="{{ m.account.thirdparty_profile_page }}">@{{ m.account.name }}</a></li>
                 {% endfor %}
             </ul>
         </li>
-        <li>Send a generous donation to our <a href="https://steemit.com/@steemprojects">@steemprojects</a> account :)</li>
-        <li>Share a link to SteemProjects every time you would like to show how active our community is</li>
+        <li>Send a generous donation to our <a href="https://peakd.com/@hiveprojects">@hiveprojects</a> account :)</li>
+        <li>Share a link to HiveProjects every time you would like to show how active our community is</li>
     </ul>
 </p>
 {##}

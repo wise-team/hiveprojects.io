@@ -1,6 +1,6 @@
-# Steem Projects
+# Hive Projects
 
-Steem Projects was created to gather information about all projects created for and by Steem community.
+Hive Projects was created to gather information about all projects created for and by Hive community.
 
 Stay tuned for more!
 
